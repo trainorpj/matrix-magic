@@ -1,0 +1,16 @@
+{
+  "name": "matrix-fun",
+  "version": "1.0.0",
+  "description": "library for manipulating matrices",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "keywords": ["matrix"],
+  "author": "PJ Trainor",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^20.0.4"
+  }
+}
