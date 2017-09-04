@@ -1,5 +1,8 @@
 const { SQUARE, TALL, WIDE, ROW, COL, BIG } = require("./globals");
-const { getClockwiseSpiral, getCounterClockwiseSpiral } = require("../index");
+const {
+  getClockwiseSpiral,
+  getCounterClockwiseSpiral
+} = require("../src/index");
 
 /**
 |--------------------------------------------------

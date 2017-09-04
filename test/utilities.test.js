@@ -1,5 +1,5 @@
-const arr = require("../arrayUtils");
-const mtx = require("../matrixUtils");
+const arr = require("../src/arrayUtils");
+const mtx = require("../src/matrixUtils");
 const GLOBALS = require("./globals");
 
 /**

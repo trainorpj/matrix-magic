@@ -1,5 +1,5 @@
 const { SQUARE, TALL, WIDE, ROW, COL, BIG } = require("./globals");
-const { flipOnCol, flipOnRow } = require("../index");
+const { flipOnCol, flipOnRow } = require("../src/index");
 
 /**
 |--------------------------------------------------
