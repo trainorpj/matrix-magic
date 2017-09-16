@@ -1,14 +1,14 @@
-const arr = require("../src/arrayUtils");
-const mtx = require("../src/matrixUtils");
-const GLOBALS = require("./globals");
-
-/**
-|--------------------------------------------------
-| Global Inputs
-|--------------------------------------------------
-*/
-
-const { SQUARE, TALL, WIDE, ROW, COL, BIG } = GLOBALS;
+import {
+  getMatrixHeight,
+  getMatrixWidth,
+  getMatrixDimensions,
+  transpose,
+  sliceMatrixRows,
+  sliceMatrixCols,
+  getMiddleElements,
+  doMatrixCheck
+} from "../src/index";
+import { SQUARE, TALL, WIDE, ROW, COL, BIG } from "./globals";
 
 /**
 |--------------------------------------------------
@@ -16,42 +16,42 @@ const { SQUARE, TALL, WIDE, ROW, COL, BIG } = GLOBALS;
 |--------------------------------------------------
 */
 
-it("should check if matrix is empty", () => {
-  expect(mtx.checkIfEmpty([[]])).toEqual(true);
-  expect(mtx.checkIfEmpty([])).toEqual(false);
-  expect(mtx.checkIfEmpty(SQUARE)).toEqual(false);
-});
+// it("should check if matrix is empty", () => {
+//   expect(checkIfEmpty([[]])).toEqual(true);
+//   expect(checkIfEmpty([])).toEqual(false);
+//   expect(checkIfEmpty(SQUARE)).toEqual(false);
+// });
 
-it("should check if various nArrays are a matrices", () => {
-  const nArray = [[1], [2, 3]];
-  const strArray = [[1, 2, 4], "abc"];
+// it("should check if various nArrays are a matrices", () => {
+//   const nArray = [[1], [2, 3]];
+//   const strArray = [[1, 2, 4], "abc"];
 
-  expect(mtx.checkIfMatrix(nArray)).toEqual(false);
-  expect(mtx.checkIfMatrix(strArray)).toEqual(false);
-  expect(mtx.checkIfMatrix(SQUARE)).toEqual(true);
-  expect(mtx.checkIfMatrix([])).toEqual(true);
-});
+//   expect(doMatrixCheck(nArray)).toEqual(false);
+//   expect(doMatrixCheck(strArray)).toEqual(false);
+//   expect(doMatrixCheck(SQUARE)).toEqual(true);
+//   expect(doMatrixCheck([])).toEqual(true);
+// });
 
 it("should get height of various nArrays", () => {
   const nArray = [[1], [2, 3], "abc"];
 
   expect(() => {
-    mtx.getMatrixHeight(nArray);
+    getMatrixHeight(nArray);
   }).toThrow();
-  expect(mtx.getMatrixHeight(SQUARE)).toEqual(3);
-  expect(mtx.getMatrixHeight(ROW)).toEqual(1);
-  expect(mtx.getMatrixHeight(COL)).toEqual(3);
+  expect(getMatrixHeight(SQUARE)).toEqual(3);
+  expect(getMatrixHeight(ROW)).toEqual(1);
+  expect(getMatrixHeight(COL)).toEqual(3);
 });
 
 it("should should get width of various nArrays", () => {
   const nArray = [[1], [2, 3], "abc"];
 
   expect(() => {
-    mtx.getMatrixWidth(nArray);
+    getMatrixWidth(nArray);
   }).toThrow();
-  expect(mtx.getMatrixWidth(SQUARE)).toEqual(3);
-  expect(mtx.getMatrixWidth(ROW)).toEqual(3);
-  expect(mtx.getMatrixWidth(COL)).toEqual(1);
+  expect(getMatrixWidth(SQUARE)).toEqual(3);
+  expect(getMatrixWidth(ROW)).toEqual(3);
+  expect(getMatrixWidth(COL)).toEqual(1);
 });
 
 it("should get dimensions of various nArrays", () => {
@@ -64,11 +64,11 @@ it("should get dimensions of various nArrays", () => {
   };
 
   expect(() => {
-    mtx.getMatrixWidth(nArray);
+    getMatrixWidth(nArray);
   }).toThrow();
-  expect(mtx.getMatrixDimensions(SQUARE)).toEqual(expectedOutput.square);
-  expect(mtx.getMatrixDimensions(ROW)).toEqual(expectedOutput.row);
-  expect(mtx.getMatrixDimensions(COL)).toEqual(expectedOutput.col);
+  expect(getMatrixDimensions(SQUARE)).toEqual(expectedOutput.square);
+  expect(getMatrixDimensions(ROW)).toEqual(expectedOutput.row);
+  expect(getMatrixDimensions(COL)).toEqual(expectedOutput.col);
 });
 
 it("should get middle elements of an array", () => {
@@ -79,28 +79,8 @@ it("should get middle elements of an array", () => {
     emp: []
   };
 
-  expect(arr.getMiddleElmts(arrInput)).toEqual(expectedOutput.arr);
-  expect(arr.getMiddleElmts(emptyInput)).toEqual(expectedOutput.emp);
-});
-
-it("should transpose matrices of different sizes", () => {
-  const input = { SQUARE, TALL, WIDE, ROW, COL };
-  const expectedOutput = {
-    SQUARE: [[1, 4, 7], [2, 5, 8], [3, 6, 9]],
-    TALL: [[1, 3, 5], [2, 4, 6]],
-    WIDE: [[1, 4], [2, 5], [3, 6]],
-    ROW: [[1], [2], [3]],
-    COL: [[1, 2, 3]]
-  };
-
-  const testCase = str =>
-    expect(mtx.transpose(input[str])).toEqual(expectedOutput[str]);
-
-  testCase("SQUARE");
-  testCase("TALL");
-  testCase("WIDE");
-  testCase("ROW");
-  testCase("COL");
+  expect(getMiddleElements(arrInput)).toEqual(expectedOutput.arr);
+  expect(getMiddleElements(emptyInput)).toEqual(expectedOutput.emp);
 });
 
 it("should slice rows of a square matrix", () => {
@@ -117,18 +97,16 @@ it("should slice rows of a square matrix", () => {
     copy: SQUARE
   };
 
-  expect(mtx.sliceMatrixRows(SQUARE, ...inputs.topRows)).toEqual(
+  expect(sliceMatrixRows(SQUARE, ...inputs.topRows)).toEqual(
     expectedOutput.topRows
   );
-  expect(mtx.sliceMatrixRows(SQUARE, ...inputs.botRows)).toEqual(
+  expect(sliceMatrixRows(SQUARE, ...inputs.botRows)).toEqual(
     expectedOutput.botRows
   );
-  expect(mtx.sliceMatrixRows(SQUARE, ...inputs.sameRows)).toEqual(
+  expect(sliceMatrixRows(SQUARE, ...inputs.sameRows)).toEqual(
     expectedOutput.sameRows
   );
-  expect(mtx.sliceMatrixRows(SQUARE, ...inputs.copy)).toEqual(
-    expectedOutput.copy
-  );
+  expect(sliceMatrixRows(SQUARE, ...inputs.copy)).toEqual(expectedOutput.copy);
 });
 
 it("should slice columns of a square matrix", () => {
@@ -145,50 +123,48 @@ it("should slice columns of a square matrix", () => {
     copy: SQUARE
   };
 
-  expect(mtx.sliceMatrixCols(SQUARE, ...inputs.leftCols)).toEqual(
+  expect(sliceMatrixCols(SQUARE, ...inputs.leftCols)).toEqual(
     expectedOutput.leftCols
   );
-  expect(mtx.sliceMatrixCols(SQUARE, ...inputs.rightCols)).toEqual(
+  expect(sliceMatrixCols(SQUARE, ...inputs.rightCols)).toEqual(
     expectedOutput.rightCols
   );
-  expect(mtx.sliceMatrixCols(SQUARE, ...inputs.sameCols)).toEqual(
+  expect(sliceMatrixCols(SQUARE, ...inputs.sameCols)).toEqual(
     expectedOutput.sameCols
   );
-  expect(mtx.sliceMatrixCols(SQUARE, ...inputs.copy)).toEqual(
-    expectedOutput.copy
-  );
+  expect(sliceMatrixCols(SQUARE, ...inputs.copy)).toEqual(expectedOutput.copy);
 });
 
-it("should get top/bottom/middle rows of square matrix", () => {
-  const expectedOutput = {
-    getTopRow: [[1, 2, 3]],
-    getBottomRow: [[7, 8, 9]],
-    getMiddleRows: [[4, 5, 6]],
-    getAllButTopRow: [[4, 5, 6], [7, 8, 9]],
-    getAllButBottomRow: [[1, 2, 3], [4, 5, 6]]
-  };
+// it("should get top/bottom/middle rows of square matrix", () => {
+//   const expectedOutput = {
+//     getTopRow: [[1, 2, 3]],
+//     getBottomRow: [[7, 8, 9]],
+//     getMiddleRows: [[4, 5, 6]],
+//     getAllButTopRow: [[4, 5, 6], [7, 8, 9]],
+//     getAllButBottomRow: [[1, 2, 3], [4, 5, 6]]
+//   };
 
-  const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
-  testCase("getTopRow");
-  testCase("getBottomRow");
-  testCase("getMiddleRows");
-  testCase("getAllButTopRow");
-  testCase("getAllButBottomRow");
-});
+//   const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
+//   testCase("getTopRow");
+//   testCase("getBottomRow");
+//   testCase("getMiddleRows");
+//   testCase("getAllButTopRow");
+//   testCase("getAllButBottomRow");
+// });
 
-it("should get top/bottom/middle columns of square matrix", () => {
-  const expectedOutput = {
-    getLeftCol: [[1], [4], [7]],
-    getRightCol: [[3], [6], [9]],
-    getMiddleCols: [[2], [5], [8]],
-    getAllButLeftCol: [[2, 3], [5, 6], [8, 9]],
-    getAllButRightCol: [[1, 2], [4, 5], [7, 8]]
-  };
+// it("should get top/bottom/middle columns of square matrix", () => {
+//   const expectedOutput = {
+//     getLeftCol: [[1], [4], [7]],
+//     getRightCol: [[3], [6], [9]],
+//     getMiddleCols: [[2], [5], [8]],
+//     getAllButLeftCol: [[2, 3], [5, 6], [8, 9]],
+//     getAllButRightCol: [[1, 2], [4, 5], [7, 8]]
+//   };
 
-  const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
-  testCase("getLeftCol");
-  testCase("getRightCol");
-  testCase("getMiddleCols");
-  testCase("getAllButLeftCol");
-  testCase("getAllButRightCol");
-});
+//   const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
+//   testCase("getLeftCol");
+//   testCase("getRightCol");
+//   testCase("getMiddleCols");
+//   testCase("getAllButLeftCol");
+//   testCase("getAllButRightCol");
+// });

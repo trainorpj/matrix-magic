@@ -1,5 +1,5 @@
-const { SQUARE, TALL, WIDE, ROW, COL, BIG } = require("./globals");
-const { flipOnCol, flipOnRow } = require("../src/index");
+import { SQUARE, TALL, WIDE, ROW, COL, BIG } from "./globals";
+import { flipRows, flipCols } from "../src/index";
 
 /**
 |--------------------------------------------------
@@ -13,9 +13,9 @@ it("should flip square matrix on a row", () => {
     mid: [[7, 8, 9], [4, 5, 6], [1, 2, 3]],
     bot: [[7, 8, 9], [4, 5, 6], [1, 2, 3]]
   };
-  expect(flipOnRow(SQUARE, 0)).toEqual(expectedOutput.top);
-  expect(flipOnRow(SQUARE, 1)).toEqual(expectedOutput.mid);
-  expect(flipOnRow(SQUARE, 2)).toEqual(expectedOutput.bot);
+  expect(flipRows(SQUARE)).toEqual(expectedOutput.top);
+  expect(flipRows(SQUARE)).toEqual(expectedOutput.mid);
+  expect(flipRows(SQUARE)).toEqual(expectedOutput.bot);
 });
 
 it("should flip square matrix on a column", () => {
@@ -24,7 +24,7 @@ it("should flip square matrix on a column", () => {
     mid: [[3, 2, 1], [6, 5, 4], [9, 8, 7]],
     right: [[3, 2, 1], [6, 5, 4], [9, 8, 7]]
   };
-  expect(flipOnCol(SQUARE, 0)).toEqual(expectedOutput.left);
-  expect(flipOnCol(SQUARE, 1)).toEqual(expectedOutput.mid);
-  expect(flipOnCol(SQUARE, 2)).toEqual(expectedOutput.right);
+  expect(flipCols(SQUARE)).toEqual(expectedOutput.left);
+  expect(flipCols(SQUARE)).toEqual(expectedOutput.mid);
+  expect(flipCols(SQUARE)).toEqual(expectedOutput.right);
 });

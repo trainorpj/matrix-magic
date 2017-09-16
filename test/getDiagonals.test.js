@@ -1,5 +1,5 @@
-const { SQUARE, TALL, WIDE, ROW, COL, BIG } = require("./globals");
-const { getMinorDiagonals, getMajorDiagonals } = require("../src/index");
+import { SQUARE, TALL, WIDE, ROW, COL, BIG } from "./globals";
+import { getMinorDiagonals, getMajorDiagonals } from "../src/index";
 
 /**
 |--------------------------------------------------

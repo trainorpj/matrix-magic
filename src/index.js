@@ -1,75 +1,81 @@
-const {
-  getFirstElmt,
-  getAllButFirstElmt,
-  getLastElmt,
-  getAllButLastElmt,
-  getMiddleElmts,
+export {
+  getFirstElement,
+  getAllButFirstElement,
+  getLastElement,
+  getAllButLastElement,
+  getMiddleElements,
   filterOutEmptyArrays,
   flattenArray
-} = require("./arrayUtils");
+} from "./arrayUtils";
 
-const {
-  emptyMatrix,
-  checkIfEmpty,
-  checkIfMatrix,
-  doMatrixOp,
-  doColOperation,
-  getMatrixHeight,
-  getMatrixWidth,
-  getMatrixDimensions,
-  checkIfRowVector,
-  checkIfColVector,
-  checkIfVector,
-  transpose,
-  sliceMatrixRows,
-  sliceMatrixCols,
-  getTopRow,
-  getBottomRow,
-  getAllButTopRow,
-  getAllButBottomRow,
-  getMiddleRows,
-  getLeftCol,
-  getAllButLeftCol,
-  getRightCol,
-  getAllButRightCol,
-  getMiddleCols
-} = require("./matrixUtils");
+import { transpose as transpose_ } from "./transpose";
 
-const {
-  getMinorDiagonals,
-  getMajorDiagonals,
-  flipOnRow,
-  flipOnCol,
-  getClockwiseSpiral,
-  getCounterClockwiseSpiral
-} = require("./transforms");
+import {
+  doMatrixCheck,
+  matrixWrapper,
+  doColumnOperation
+} from "./matrixDecorators";
 
-module.exports = {
-  emptyMatrix,
-  checkIfEmpty,
-  checkIfMatrix,
-  doMatrixOp,
-  doColOperation,
-  getMatrixHeight,
-  getMatrixWidth,
-  getMatrixDimensions,
-  transpose,
-  sliceMatrixRows,
-  sliceMatrixCols,
-  getTopRow,
-  getBottomRow,
-  getAllButTopRow,
-  getAllButBottomRow,
-  getMiddleRows,
-  getLeftCol,
-  getAllButLeftCol,
-  getRightCol,
-  getAllButRightCol,
-  getMiddleCols,
-  getMinorDiagonals,
-  getMajorDiagonals,
-  flipOnRow,
-  flipOnCol,
-  getClockwiseSpiral,
-  getCounterClockwiseSpiral
-};
+export { doMatrixCheck, matrixWrapper, doColumnOperation };
+
+import {
+  getMatrixWidth as getMatrixWidth_,
+  getMatrixHeight as getMatrixHeight_,
+  getMatrixDimensions as getMatrixDimensions_
+} from "./matrixDimensions";
+
+import { flipRows as flipRows_, flipCols as flipCols_ } from "./matrixShift";
+
+import {
+  sliceMatrixRows as sliceMatrixRows_,
+  getTopRow as getTopRow_,
+  getAllButTopRow as getAllButTopRow_,
+  getBottomRow as getBottomRow_,
+  getAllButBottomRow as getAllButBottomRow_,
+  getMiddleRows as getMiddleRows_,
+  sliceMatrixCols as sliceMatrixCols_,
+  getLeftCol as getLeftCol_,
+  getAllButLeftCol as getAllButLeftCol_,
+  getRightCol as getRightCol_,
+  getAllButRightCol as getAllButRightCol_,
+  getMiddleCols as getMiddleCols_
+} from "./matrixSlice";
+
+import {
+  getMinorDiagonals as getMinorDiagonals_,
+  getMajorDiagonals as getMajorDiagonals_
+} from "./getDiagonals";
+
+import {
+  getClockwiseSpiral as getClockwiseSpiral_,
+  getCounterClockwiseSpiral as getCounterClockwiseSpiral_
+} from "./getSpiral";
+
+const wrp = matrixWrapper;
+
+export const transpose = wrp(transpose_);
+
+export const getMatrixWidth = wrp(getMatrixWidth_);
+export const getMatrixHeight = wrp(getMatrixHeight_);
+export const getMatrixDimensions = wrp(getMatrixDimensions_);
+export const sliceMatrixRows = wrp(sliceMatrixRows_);
+export const getTopRow = wrp(getTopRow_);
+export const getAllButTopRow = wrp(getAllButTopRow_);
+export const getBottomRow = wrp(getBottomRow_);
+export const getAllButBottomRow = wrp(getAllButBottomRow_);
+export const getMiddleRows = wrp(getMiddleRows_);
+export const sliceMatrixCols = wrp(sliceMatrixCols_);
+export const getLeftCol = wrp(getLeftCol_);
+export const getAllButLeftCol = wrp(getAllButLeftCol_);
+export const getRightCol = wrp(getAllButRightCol_);
+export const getAllButRightCol = wrp(getAllButRightCol_);
+export const getMiddleCols = wrp(getMiddleCols_);
+
+export const flipRows = wrp(flipRows_);
+export const flipCols = wrp(flipCols_);
+
+export const getMinorDiagonals = wrp(getMinorDiagonals_);
+export const getMajorDiagonals = wrp(getMajorDiagonals_);
+
+export const getClockwiseSpiral = wrp(getClockwiseSpiral_);
+export const getCounterClockwiseSpiral = wrp(getCounterClockwiseSpiral_);
