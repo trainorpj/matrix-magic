@@ -2,7 +2,7 @@
 
 `npm install --save matrix-magic`
 
-[Try is on runkit](https://npm.runkit.com/matrix-magic)
+[Try it on runkit](https://npm.runkit.com/matrix-magic)
 
 This library performs various transformations on matrices.  This library does not do matrix operations (or more specifically, matrix multiplication), but serves to manipulate the shape of a matrix.  It does stuff like this:
 
