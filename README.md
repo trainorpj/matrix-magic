@@ -1,6 +1,6 @@
 # matrix-magic
 
-`npm instal --save matrix-magic`
+`npm install --save matrix-magic`
 
 [Try is on runkit](https://npm.runkit.com/matrix-magic)
 
