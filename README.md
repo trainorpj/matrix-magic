@@ -50,7 +50,7 @@ getMiddleCols()
 
 Note that in the following functions, `matrix` is an array of arrays, where each sub-array has the same length.  Most of these functions will throw an error if the input is not a matrix.
 
-## Matrix Utilities
+## Matrix Utilities [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixDimensions.js)
 
 ### `getMatrixWidth(matrix)`
 
@@ -146,7 +146,7 @@ Returns an array of the entries of `matrix` going clockwise from the top-left co
 
 Returns an array of entries of `matrix` going counter-clockwise from the top-left corner, spiraling into the center.
 
-## Decorators [<>]((https://github.com/trainorpj/matrix-magic/blob/master/src/matrixDecorators.js))
+## Decorators [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixDecorators.js)
 
 ### `doColumnOperation(fcn)(matrix, ...args)`
 
