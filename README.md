@@ -1,5 +1,9 @@
 # matrix-magic
 
+`npm instal --save matrix-magic`
+
+[Try is on runkit](https://npm.runkit.com/matrix-magic)
+
 This library performs various transformations on matrices.  This library does not do matrix operations (or more specifically, matrix multiplication), but serves to manipulate the shape of a matrix.  It does stuff like this:
 
 ```
@@ -23,7 +27,7 @@ getClockwiseSpiral()
 
 ```
 
-It also provides some utilties to work with matrices:
+It also provides some utilities to work with matrices:
 
 ```
 transpose()
@@ -41,7 +45,135 @@ getMiddleCols()
  [*, 7, 8, 9, *]]           [7, 8, 9]]
 
 ```
-## About
+
+# Library
+
+Note that in the following functions, `matrix` is an array of arrays, where each sub-array has the same length.  Most of these functions will throw an error if the input is not a matrix.
+
+## Matrix Utilities
+
+### `getMatrixWidth(matrix)`
+
+Returns the width of `matrix` i.e. the number of columns.
+
+### `getMatrixHeight(matrix)`
+
+Returns the height of `matrix` i.e. the number of rows.
+
+### `getMatrixDimensions(matrix)`
+
+Returns and object `{width, height}`, where `width` is the number of columns in `matrix`, and `height` is the number of rows in `matrix`.
+
+## Row Utilities [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixSlice.js)
+
+### `sliceMatrixRows(matrix, start, stop)`
+
+Returns the slice of the rows of `matrix` from index `start` to index `stop - 1`, much like `Array.prototype.slice()`.
+
+### `getTopRow(matrix)`
+
+Returns the top row of `matrix` as a matrix.
+
+### `getAllButTopRow(matrix)`
+
+Returns `matrix` without the top row.
+
+### `getBottomRow(matrix)`
+
+Returns the bottom row of `matrix` as a matrix.
+
+### `getAllButBottomRow(matrix)`
+
+Returns `matrix` without the bottom row.
+
+### `getMiddleRows(matrix)`
+
+Returns `matrix` without top and bottom rows.
+
+### `flipRows(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixShift.js)
+
+Returns `matrix` with the rows in reverse order. 
+
+## Column Utilities [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixSlice.js)
+
+### `sliceMatrixCols(matrix, start, stop)`
+
+Returns the slice of the columns of `matrix` from index `start` to index `stop - 1`, much like `Array.prototype.slice()`.
+
+### `getLeftCol(matrix)`
+
+Returns the left column of `matrix` as a matrix.
+
+### `getRightCol(matrix)`
+
+Returns the right column of `matrix as a matrix.
+
+### `getAllButLeftCol(matrix)`
+
+Returns `matrix` without the left column.
+
+### `getAllButRightCol(matrix)`
+
+Returns `matrix` without the right column.
+
+### `getMiddleCols(matrix)`
+
+Returns `matrix` without the left and right columns.
+
+### `flipCols(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/matrixShift.js)
+
+Returns `matrix` with the columns in reverse order.
+
+## Matrix Utilities
+
+### `transpose(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/transpose.js)
+
+Returns `matrix` with the rows and the columns flipped, i.e. the leftmost column is now the top row (and vice versa), and so on.
+
+### `getMinorDiagonals(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/getDiagonals.js)
+
+Returns an nArray (an array of arrays, not necessarily of equal length) of the minor diagonals of `matrix`, starting from the top-left corner, down to the bottom-right corner.
+
+### `getMajorDiagonals(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/getDiagonals.js)
+
+Returns an nArray (an array of arrays, not necessarily of equal length) of the major diagonals of `matrix`, starting from the bottom-left corner, up to the top-right corner.
+
+### `getClockwiseSpiral(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/getSpiral.js)
+
+Returns an array of the entries of `matrix` going clockwise from the top-left corner, spiraling into the center.
+
+### `getCounterClockwiseSpiral(matrix)` [<>](https://github.com/trainorpj/matrix-magic/blob/master/src/getSpiral.js)
+
+Returns an array of entries of `matrix` going counter-clockwise from the top-left corner, spiraling into the center.
+
+## Decorators [<>]((https://github.com/trainorpj/matrix-magic/blob/master/src/matrixDecorators.js))
+
+### `doColumnOperation(fcn)(matrix, ...args)`
+
+`doColumnOperation(fcn)` returns a function that transposes `matrix`, applies `fcn`, and then returns the resulting transpose.
+
+This utility allows us to use row utilities on the columns.  The definition is
+
+```js
+const doColumnOperation = fcn => (mtx, ...args) => {
+  return transpose(fcn(transpose(mtx), ...args));
+};
+```
+
+### `doMatrixCheck(fcn)(nArray, ...args)`
+
+`doMatrixCheck(fcn)` returns a function that evaluates `fcn(nArray, ...args)` if `nArray` is a matrix.  If `nArray` is not a matrix, it will throw an error.
+
+### `matrixWrapper(fcn)(nArray, ...args)`
+
+`matrixWrapper(fcn)` returns a function that evaluates `fcn(nArray, ...args)` pending several checks.  Those checks are:
+* Check if it is the empty matrix `[[]]`
+* Check if it is a matrix with `doMatrixCheck`
+
+
+
+
+# About
 
 This library has no dependencies and consists of entirely pure functions. I mostly did this because I thought it would be fun (and it is!), and to learn about unit testing with jest.
 
