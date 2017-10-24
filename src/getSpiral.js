@@ -21,10 +21,6 @@ const formatOuterSpiral = (top, right, bottom, left) => {
   return flattenArray(edgeArray).filter(d => d !== undefined);
 };
 
-// get clockwise spiral of matrix
-// TODO
-// * better logic for terminal step... perhaps checkIfRowVector?
-// * too many flatten statements... can I fix that?
 export const getClockwiseSpiral = matrix => {
   const { width, height } = getMatrixDimensions(matrix);
 
@@ -33,7 +29,9 @@ export const getClockwiseSpiral = matrix => {
     if (width === 0) {
       return [];
     } else {
-      return height > width ? [...getLeftCol(matrix)] : [...getTopRow(matrix)];
+      const termArr =
+        height > width ? [...getLeftCol(matrix)] : [...getTopRow(matrix)];
+      return flattenArray(termArr);
     }
   } else {
     // get top row

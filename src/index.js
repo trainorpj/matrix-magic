@@ -18,6 +18,8 @@ import {
 
 export { doMatrixCheck, matrixWrapper, doColumnOperation };
 
+import { applyToEntries as applyToEntries_ } from "./matrixDecorators";
+
 import {
   getMatrixWidth as getMatrixWidth_,
   getMatrixHeight as getMatrixHeight_,
@@ -54,6 +56,7 @@ import {
 const wrp = matrixWrapper;
 
 export const transpose = wrp(transpose_);
+export const applyToEntries = wrp(applyToEntries_);
 
 export const getMatrixWidth = wrp(getMatrixWidth_);
 export const getMatrixHeight = wrp(getMatrixHeight_);

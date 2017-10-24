@@ -23,10 +23,6 @@ var formatOuterSpiral = function formatOuterSpiral(top, right, bottom, left) {
   });
 };
 
-// get clockwise spiral of matrix
-// TODO
-// * better logic for terminal step... perhaps checkIfRowVector?
-// * too many flatten statements... can I fix that?
 var getClockwiseSpiral = exports.getClockwiseSpiral = function getClockwiseSpiral(matrix) {
   var _getMatrixDimensions = (0, _matrixDimensions.getMatrixDimensions)(matrix),
       width = _getMatrixDimensions.width,
@@ -39,7 +35,8 @@ var getClockwiseSpiral = exports.getClockwiseSpiral = function getClockwiseSpira
     if (width === 0) {
       return [];
     } else {
-      return height > width ? [].concat(_toConsumableArray((0, _matrixSlice.getLeftCol)(matrix))) : [].concat(_toConsumableArray((0, _matrixSlice.getTopRow)(matrix)));
+      var termArr = height > width ? [].concat(_toConsumableArray((0, _matrixSlice.getLeftCol)(matrix))) : [].concat(_toConsumableArray((0, _matrixSlice.getTopRow)(matrix)));
+      return (0, _arrayUtils.flattenArray)(termArr);
     }
   } else {
     // get top row

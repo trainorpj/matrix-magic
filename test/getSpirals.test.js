@@ -25,17 +25,17 @@ it("should get clockwise spiral array for tall matrix", () => {
   expect(getClockwiseSpiral(TALL)).toEqual(expectedOutput);
 });
 
-// // ROW
-// it("should get clockwise spiral array for row matrix", () => {
-//   const expectedOutput = [1, 2, 3];
-//   expect(getClockwiseSpiral(ROW)).toEqual(expectedOutput);
-// });
+// ROW
+it("should get clockwise spiral array for row matrix", () => {
+  const expectedOutput = [1, 2, 3];
+  expect(getClockwiseSpiral(ROW)).toEqual(expectedOutput);
+});
 
-// // COL
-// it("should get clockwise spiral array for col matrix", () => {
-//   const expectedOutput = [1, 2, 3];
-//   expect(getClockwiseSpiral(COL)).toEqual(expectedOutput);
-// });
+// COL
+it("should get clockwise spiral array for col matrix", () => {
+  const expectedOutput = [1, 2, 3];
+  expect(getClockwiseSpiral(COL)).toEqual(expectedOutput);
+});
 
 // BIG
 it("should get clockwise spiral array for big matrix", () => {
@@ -92,17 +92,17 @@ it("should get counter-clockwise spiral array for tall matrix", () => {
   expect(getCounterClockwiseSpiral(TALL)).toEqual(expectedOutput);
 });
 
-// // ROW
-// it("should get counter-clockwise spiral array for row matrix", () => {
-//   const expectedOutput = [1, 2, 3];
-//   expect(getCounterClockwiseSpiral(ROW)).toEqual(expectedOutput);
-// });
+// ROW
+it("should get counter-clockwise spiral array for row matrix", () => {
+  const expectedOutput = [1, 2, 3];
+  expect(getCounterClockwiseSpiral(ROW)).toEqual(expectedOutput);
+});
 
-// // COL
-// it("should get counter-clockwise spiral array for column matrix", () => {
-//   const expectedOutput = [1, 2, 3];
-//   expect(getCounterClockwiseSpiral(COL)).toEqual(expectedOutput);
-// });
+// COL
+it("should get counter-clockwise spiral array for column matrix", () => {
+  const expectedOutput = [1, 2, 3];
+  expect(getCounterClockwiseSpiral(COL)).toEqual(expectedOutput);
+});
 
 // BIG
 it("should get counter-clockwise spiral array for big matrix", () => {

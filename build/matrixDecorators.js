@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.doColumnOperation = exports.matrixWrapper = exports.doMatrixCheck = undefined;
+exports.applyToEntries = exports.doColumnOperation = exports.matrixWrapper = exports.doMatrixCheck = undefined;
 
 var _transpose = require("./transpose");
 
@@ -91,5 +91,19 @@ var doColumnOperation = exports.doColumnOperation = function doColumnOperation(f
     }
 
     return (0, _transpose.transpose)(fcn.apply(undefined, [(0, _transpose.transpose)(mtx)].concat(args)));
+  };
+};
+
+var applyToEntries = exports.applyToEntries = function applyToEntries(mtx) {
+  for (var _len4 = arguments.length, args = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+    args[_key4 - 1] = arguments[_key4];
+  }
+
+  return function (fcn) {
+    return mtx.map(function (r) {
+      return r.map(function (entry) {
+        return fcn.apply(undefined, [entry].concat(args));
+      });
+    });
   };
 };

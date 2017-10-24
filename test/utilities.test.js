@@ -16,22 +16,6 @@ import { SQUARE, TALL, WIDE, ROW, COL, BIG } from "./globals";
 |--------------------------------------------------
 */
 
-// it("should check if matrix is empty", () => {
-//   expect(checkIfEmpty([[]])).toEqual(true);
-//   expect(checkIfEmpty([])).toEqual(false);
-//   expect(checkIfEmpty(SQUARE)).toEqual(false);
-// });
-
-// it("should check if various nArrays are a matrices", () => {
-//   const nArray = [[1], [2, 3]];
-//   const strArray = [[1, 2, 4], "abc"];
-
-//   expect(doMatrixCheck(nArray)).toEqual(false);
-//   expect(doMatrixCheck(strArray)).toEqual(false);
-//   expect(doMatrixCheck(SQUARE)).toEqual(true);
-//   expect(doMatrixCheck([])).toEqual(true);
-// });
-
 it("should get height of various nArrays", () => {
   const nArray = [[1], [2, 3], "abc"];
 
@@ -134,37 +118,3 @@ it("should slice columns of a square matrix", () => {
   );
   expect(sliceMatrixCols(SQUARE, ...inputs.copy)).toEqual(expectedOutput.copy);
 });
-
-// it("should get top/bottom/middle rows of square matrix", () => {
-//   const expectedOutput = {
-//     getTopRow: [[1, 2, 3]],
-//     getBottomRow: [[7, 8, 9]],
-//     getMiddleRows: [[4, 5, 6]],
-//     getAllButTopRow: [[4, 5, 6], [7, 8, 9]],
-//     getAllButBottomRow: [[1, 2, 3], [4, 5, 6]]
-//   };
-
-//   const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
-//   testCase("getTopRow");
-//   testCase("getBottomRow");
-//   testCase("getMiddleRows");
-//   testCase("getAllButTopRow");
-//   testCase("getAllButBottomRow");
-// });
-
-// it("should get top/bottom/middle columns of square matrix", () => {
-//   const expectedOutput = {
-//     getLeftCol: [[1], [4], [7]],
-//     getRightCol: [[3], [6], [9]],
-//     getMiddleCols: [[2], [5], [8]],
-//     getAllButLeftCol: [[2, 3], [5, 6], [8, 9]],
-//     getAllButRightCol: [[1, 2], [4, 5], [7, 8]]
-//   };
-
-//   const testCase = str => expect(mtx[str](SQUARE)).toEqual(expectedOutput[str]);
-//   testCase("getLeftCol");
-//   testCase("getRightCol");
-//   testCase("getMiddleCols");
-//   testCase("getAllButLeftCol");
-//   testCase("getAllButRightCol");
-// });

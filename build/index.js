@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getCounterClockwiseSpiral = exports.getClockwiseSpiral = exports.getMajorDiagonals = exports.getMinorDiagonals = exports.flipCols = exports.flipRows = exports.getMiddleCols = exports.getAllButRightCol = exports.getRightCol = exports.getAllButLeftCol = exports.getLeftCol = exports.sliceMatrixCols = exports.getMiddleRows = exports.getAllButBottomRow = exports.getBottomRow = exports.getAllButTopRow = exports.getTopRow = exports.sliceMatrixRows = exports.getMatrixDimensions = exports.getMatrixHeight = exports.getMatrixWidth = exports.transpose = exports.doColumnOperation = exports.matrixWrapper = exports.doMatrixCheck = exports.flattenArray = exports.filterOutEmptyArrays = exports.getMiddleElements = exports.getAllButLastElement = exports.getLastElement = exports.getAllButFirstElement = exports.getFirstElement = undefined;
+exports.getCounterClockwiseSpiral = exports.getClockwiseSpiral = exports.getMajorDiagonals = exports.getMinorDiagonals = exports.flipCols = exports.flipRows = exports.getMiddleCols = exports.getAllButRightCol = exports.getRightCol = exports.getAllButLeftCol = exports.getLeftCol = exports.sliceMatrixCols = exports.getMiddleRows = exports.getAllButBottomRow = exports.getBottomRow = exports.getAllButTopRow = exports.getTopRow = exports.sliceMatrixRows = exports.getMatrixDimensions = exports.getMatrixHeight = exports.getMatrixWidth = exports.applyToEntries = exports.transpose = exports.doColumnOperation = exports.matrixWrapper = exports.doMatrixCheck = exports.flattenArray = exports.filterOutEmptyArrays = exports.getMiddleElements = exports.getAllButLastElement = exports.getLastElement = exports.getAllButFirstElement = exports.getFirstElement = undefined;
 
 var _arrayUtils = require("./arrayUtils");
 
@@ -72,6 +72,7 @@ exports.doColumnOperation = _matrixDecorators.doColumnOperation;
 var wrp = _matrixDecorators.matrixWrapper;
 
 var transpose = exports.transpose = wrp(_transpose.transpose);
+var applyToEntries = exports.applyToEntries = wrp(_matrixDecorators.applyToEntries);
 
 var getMatrixWidth = exports.getMatrixWidth = wrp(_matrixDimensions.getMatrixWidth);
 var getMatrixHeight = exports.getMatrixHeight = wrp(_matrixDimensions.getMatrixHeight);

@@ -64,3 +64,9 @@ export const matrixWrapper = fcn => (nArray, ...args) => {
 export const doColumnOperation = fcn => (mtx, ...args) => {
   return transpose(fcn(transpose(mtx), ...args));
 };
+
+export const applyToEntries = (mtx, ...args) => fcn => {
+  return mtx.map(r => {
+    return r.map(entry => fcn(entry, ...args));
+  });
+};
