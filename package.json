@@ -11,18 +11,15 @@
     "coverage": "jest --coverage"
   },
   "babel": {
-    "presets": [
-      "latest"
-    ]
+    "presets": ["latest"]
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/trainorpj/matrix-magic"
   },
-  "keywords": [
-    "matrix"
-  ],
+  "keywords": ["matrix"],
   "author": "PJ Trainor",
+  "homepage": "https://matrix-magic.now.sh/",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
