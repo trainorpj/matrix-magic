@@ -11,9 +11,6 @@
     "test:watch": "npm test -- --watch",
     "coverage": "jest --coverage"
   },
-  "babel": {
-    "presets": ["latest"]
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/trainorpj/matrix-magic"
