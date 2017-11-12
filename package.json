@@ -1,8 +1,9 @@
 {
   "name": "matrix-magic",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "library for manipulating matrices",
-  "main": "build/bundle.js",
+  "main": "build/index.cs.js",
+  "module": "build/index.es.js",
   "scripts": {
     "dev": "watch 'npm run build' src",
     "build": "rollup --config",
@@ -17,14 +18,14 @@
     "type": "git",
     "url": "https://github.com/trainorpj/matrix-magic"
   },
-  "keywords": ["matrix"],
+  "keywords": ["matrix", "fp", "recursion"],
   "author": "PJ Trainor",
   "homepage": "https://matrix-magic.now.sh/",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "jest": "^20.0.4",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
