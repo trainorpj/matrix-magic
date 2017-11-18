@@ -1,6 +1,6 @@
 {
   "name": "matrix-magic",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "library for manipulating matrices",
   "main": "build/index.cjs.js",
   "module": "build/index.es.js",
@@ -15,7 +15,11 @@
     "type": "git",
     "url": "https://github.com/trainorpj/matrix-magic"
   },
-  "keywords": ["matrix", "fp", "recursion"],
+  "keywords": [
+    "matrix",
+    "fp",
+    "recursion"
+  ],
   "author": "PJ Trainor",
   "homepage": "https://matrix-magic.now.sh/",
   "license": "MIT",
